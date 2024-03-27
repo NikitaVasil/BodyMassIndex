@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="/" class="header-logo">
+      Калькулятор Индекс массы тела
+    </a>
+  </header>
+  <main class="content">
+    <h1 class="visually-hidden">Body Mass Index</h1>
+    <section class="calculate">
+      <h2 class="visually-hidden">Calculate Body mass index</h2>
+      <div class="calculate-inner container">
+        <div class="calculate-body">
+          <h2 class="calculate-title title-medium backdrop-title" data-title="ИМТ">Узнай свой ИМТ</h2>
+          <div class="calculate-description">
+            <p><b>Индекс массы тела</b> является показателем отношения веса и роста человека. Данный параметр помогает
+              определить
+              отклонения от нормальной массы тела в ту или иную сторону.</p>
+          </div>
+          <form class="calculate-form" id="form">
+            <div class="calculate-form-body">
+              <label for="height" class="visually-hidden">Рос</label>
+              <input class="calculate-input input" id="height" type="number" placeholder="Рост / см" name="height">
+
+              <label for="weight" class="visually-hidden">Вес</label>
+              <input class="calculate-input input" id="weight" type="number" placeholder="Вес / кг" name="weight">
+
+              <label for="age" class="visually-hidden">Возраст</label>
+              <input class="calculate-input input" id="age" type="number" placeholder="Возраст" name="age">
+
+              <label for="gender" class="visually-hidden">Пол</label>
+              <select id="gender" class="calculate-input input" required name="gender">
+                <option value="" disabled selected>Пол</option>
+                <option value="male">Мужчина</option>
+                <option value="female">Женщина</option>
+              </select>
+
+              <label for="activity-factor" class="visually-hidden">Activity factor</label>
+              <select id="activity-factor" class="calculate-input input wide" required name="activity">
+                <option value="" disabled selected>Выберети коэфициент физической активности</option>
+                <option value="1.2">1.2 - сидячий образ жизни</option>
+                <option value="1.375">1.375 - средняя активность</option>
+                <option value="1.55">1.55 - высокая активность</option>
+                <option value="1.725">1.725 - очень высокая активность</option>
+              </select>
+            </div>
+            <button class="calculate-button button transparent" type="button">Рассчитать</button>
+          </form>
+        </div>
+        <div class="calculate-table-wrapper">
+          <table class="calculate-table">
+            <thead>
+              <tr>
+                <th>ИМТ</th>
+                <th>Категория</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Менее 18.5</td>
+                <td>Недостаточная масса тела</td>
+              </tr>
+              <tr>
+                <td>18.5 - 24.9</td>
+                <td>Норма</td>
+              </tr>
+              <tr>
+                <td>25.0 - 29.9</td>
+                <td>Избыточная масса тела</td>
+              </tr>
+              <tr>
+                <td>30.0 - и выше</td>
+                <td>Страдающий ожирением</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"><b>ИМТ</b> Индекс массы тела</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <dialog class="modal visually-hidden" aria-labelledby="modal_window" id="modal">
+        <h3>Ваши показатели</h3>
+        <!-- <div class="modal-element"> -->
+        <div class="modal-element-items bodymassindex"></div>
+        <div class="modal-element-items idealweight"></div>
+        <div class="modal-element-items basiclevelmetabolism"></div>
+        <div class="modal-element-items basicmetabolicrate"></div>
+        <div class="modal-element-items metabolism"></div>
+        <!-- </div> -->
+      </dialog>
+    </section>
+  </main>
+  <footer class="footer">
+    © <time datetime="2024">2024</time> Калькулятор ИМТ
+  </footer>
+</body>
+
+</html>
