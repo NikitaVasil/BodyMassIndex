@@ -341,7 +341,7 @@ input::-webkit-inner-spin-button {
 }
 
 :is(dialog[open]) {
-  background-color: #131619;
+  background-color: var(--color-dark-alternate);
   border: none;
   border-radius: 30% 0%;
   width: 400px;
@@ -363,7 +363,7 @@ input::-webkit-inner-spin-button {
 }
 
 .modal-element-items {
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 ::backdrop{
@@ -373,6 +373,9 @@ input::-webkit-inner-spin-button {
 
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background: var(--color-dark-alternate);
+  line-height: 1.25;
 }

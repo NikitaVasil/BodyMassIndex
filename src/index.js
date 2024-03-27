@@ -37,11 +37,11 @@ function getFormValue(event) {
   // console.log(bodyMassIndex.metabolism());
   modalElement.classList.remove('visually-hidden');
   // modalElement.setAttribute('style', 'display: flex;')
-  bmi.innerHTML = `Индекс массы тела: ${bodyMassIndex.calculateBMI()}`;
-  iweight.innerHTML = `Идеальный вес: ${bodyMassIndex.idealWeight()} кг`;
-  blm.innerHTML = `Базовый уровень метаболизма ${bodyMassIndex.basicLevelMetabolic()} Ккал`
-  bmr.innerHTML = `Базовая скорость метаболизма: ${bodyMassIndex.basicMetabolicRate()} Ккал`;
-  met.innerHTML = `Метаболизм: ${bodyMassIndex.metabolism()} Ккал`;
+  bmi.innerHTML = ` ${bodyMassIndex.calculateBMI()}`;
+  iweight.innerHTML = ` ${bodyMassIndex.idealWeight()} `;
+  blm.innerHTML = ` ${bodyMassIndex.basicLevelMetabolic()} `
+  bmr.innerHTML = ` ${bodyMassIndex.basicMetabolicRate()} `;
+  met.innerHTML = ` ${bodyMassIndex.metabolism()} `;
   modalElement.showModal();
 }
 
@@ -55,8 +55,8 @@ function closeOnBackDropClick({ currentTarget, target }) {
     modalElement.close()
     // modalElement.setAttribute('style', 'display: none;')
     modalElement.classList.add('visually-hidden');
-    bmi.innerHTML = `Индекс массы тела: `;
-    iweight.innerHTML = `Идеальный вес: `;
+    // bmi.innerHTML = `Индекс массы тела: `;
+    // iweight.innerHTML = `Идеальный вес: `;
     bmr.innerHTML = `Базовая скорость метаболизма: `;
     met.innerHTML = `Метаболизм:`;
   }

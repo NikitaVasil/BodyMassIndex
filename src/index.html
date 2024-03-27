@@ -10,7 +10,7 @@
 <body>
   <header class="header">
     <a href="/" class="header-logo">
-      Калькулятор Индекс массы тела
+      Калькулятор Индекса массы тела
     </a>
   </header>
   <main class="content">
@@ -92,17 +92,32 @@
       <dialog class="modal visually-hidden" aria-labelledby="modal_window" id="modal">
         <h3>Ваши показатели</h3>
         <!-- <div class="modal-element"> -->
-        <div class="modal-element-items bodymassindex"></div>
-        <div class="modal-element-items idealweight"></div>
-        <div class="modal-element-items basiclevelmetabolism"></div>
-        <div class="modal-element-items basicmetabolicrate"></div>
-        <div class="modal-element-items metabolism"></div>
+        <div class="modal-element-items" title="Способ оценки соотношения веса и роста человека">
+          Индекс массы тела: <span class="bodymassindex"></span>
+        </div>
+        <div class="modal-element-items">
+          Идеальный вес: <span class="idealweight"></span> кг
+        </div>
+        <div class="modal-element-items"
+          title="Минимальное количество калорий, которое необходимо человеку для поддержания веса тела на прежнем уровне">
+          Базовый уровень метаболизма: <span class="basiclevelmetabolism"></span> Ккал
+        </div>
+        <div class="modal-element-items"
+          title="Количество калорий, которое организм человека сжигает в состоянии покоя">
+          Базовая скорость метаболизма: <span class="basicmetabolicrate"></span> Ккал
+        </div>
+        <div class="modal-element-items" title="Уровень метаболизма с учетом Вашей физической активности">
+          Метаболизм: <span class="metabolism"></span> Ккал
+        </div>
         <!-- </div> -->
       </dialog>
     </section>
   </main>
   <footer class="footer">
-    © <time datetime="2024">2024</time> Калькулятор ИМТ
+    <div class="footer-copyright">
+      © <time datetime="2024">2024</time>
+    </div>
+    <div class="footer-text">Калькулятор ИМТ</div>
   </footer>
 </body>
 
