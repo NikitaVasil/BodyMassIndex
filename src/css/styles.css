@@ -28,12 +28,14 @@ body {
   font-family: var(--font-family-base);
   font-size: 16px;
   line-height: 1.75;
-  color: var(--color-light-gray);
-  background-color: var(--color-dark);
 }
 
 svg *[fill] {fill: currentColor;}
 svg *[stroke] {stroke: currentColor;}
+
+svg * {
+  transition-property: fill, stroke;
+}
 
 a,
 button,
@@ -41,18 +43,6 @@ input,
 textarea,
 svg * {
   transition-duration: var(--transition-duration);
-}
-
-svg * {
-  transition-property: fill, stroke;
-}
-
-a {
-  color: var(--color-light);
-}
-
-a:hover {
-  color: var(--color-light-gray);
 }
 
 p {
@@ -85,7 +75,6 @@ p:not([class]):not(:last-child) {
 h1,h2,h3,h4,h5,h6 {
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-light);
 }
 
 .title-medium {
@@ -117,7 +106,6 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 2.8em;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px var(--color-light-gray);
 }
 
 .backdrop-title.centered::after {
@@ -128,12 +116,11 @@ h1,h2,h3,h4,h5,h6 {
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   column-gap: 20px;
   min-height: var(--header-height);
-  padding-inline: 32px;
-  background-color: var(--color-dark-alternate);
+  padding-inline: 50px;
 }
 
 .header a {
@@ -154,14 +141,8 @@ h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: var(--color-light);
   border: none;
   border-radius: var(--border-radius);
-
-}
-
-.button:hover {
-  background-color: var(--color-light-gray);
 }
 
 .button.transparent {
@@ -169,9 +150,6 @@ h1,h2,h3,h4,h5,h6 {
   height: var(--input-height);
   padding-left: 31px;
   padding-right: 80px;
-  color: var(--color-light);
-  background: transparent;
-  border: var(--border);
 }
 
 .button.transparent::after {
@@ -180,14 +158,23 @@ h1,h2,h3,h4,h5,h6 {
   right: 0;
   height: 100%;
   aspect-ratio: 1;
-  background: url('/src/icons/arrow-top-right.svg') center/70% no-repeat;
-  border: var(--border);
   border-radius: 50%;
 }
 
-.button.transparent:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
+.button.transparent-change {
+  position: relative;
+  height: var(--input-height);
+  padding-left: 31px;
+  padding-right: 80px;
+}
+
+.button.transparent-change::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
 }
 
 .input {
@@ -195,22 +182,10 @@ h1,h2,h3,h4,h5,h6 {
   height: var(--input-height);
   padding-inline: 25px;
   background-color: transparent;
-  color: var(--color-light);
-  border: 1px solid var(--color-light-gray);
   border-radius: var(--border-radius);
 }
 
-.input::placeholder {
-  color: var(--color-light-gray);
-}
-
-.input:hover {
-  border-color: var(--color-light);
-}
-
 .input:focus {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
   outline: none;
 }
 
@@ -229,7 +204,6 @@ input::-webkit-inner-spin-button {
 
 .calculate {
   padding-block: 100px;
-  background-color: var(--color-dark-alternate);
 }
 
 .calculate-inner {
@@ -281,7 +255,6 @@ input::-webkit-inner-spin-button {
   translate: -50% -50%;
   width: 100%;
   aspect-ratio: 1;
-  background-color: var(--color-dark);
   border-radius: 50%;
 }
 
@@ -298,10 +271,6 @@ input::-webkit-inner-spin-button {
   padding-left: 30px;
 }
 
-.calculate-table :is(td, th):not(:last-child) {
-  border-right: 1px solid var(--color-light-gray);
-}
-
 .calculate-table tbody tr:last-child td:first-child {
   position: relative;
 }
@@ -313,26 +282,16 @@ input::-webkit-inner-spin-button {
   right: 0;
   width: 70%;
   height: 1px;
-  background-color: var(--color-light-gray);
-}
-
-.calculate-table tbody td {
-  border-top: 1px solid var(--color-light-gray);
 }
 
 .calculate-table th {
   padding-block: 20px;
   text-align: left;
   text-transform: uppercase;
-  color: var(--color-light);
 }
 
 .calculate-table td {
   padding-block: 14px;
-}
-
-.calculate-table tfoot {
-  color: var(--color-light);
 }
 
 .calculate-table tfoot td {
@@ -341,18 +300,15 @@ input::-webkit-inner-spin-button {
 }
 
 :is(dialog[open]) {
-  background-color: var(--color-dark-alternate);
   border: none;
   border-radius: 30% 0%;
   width: 400px;
   height: 300px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
   padding: 20px 40px;
 }
-
 
 .modal h3 {
   text-align: center;
@@ -362,13 +318,8 @@ input::-webkit-inner-spin-button {
   text-align: left;
 }
 
-.modal-element-items {
-  color: var(--color-light);
-}
-
 ::backdrop{
-  background-color: #a8a7a7;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .footer {
@@ -376,6 +327,278 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--color-dark-alternate);
   line-height: 1.25;
+}
+
+
+/* dark-theme */
+
+.dark-theme {
+  color: var(--color-light-gray);
+  background-color: var(--color-dark);
+}
+
+.dark-theme a {
+  color: var(--color-light);
+}
+
+.dark-theme a:hover {
+  color: var(--color-light-gray);
+}
+
+.dark-theme h2 {
+  color: var(--color-light);
+}
+
+.dark-theme h3 {
+  color: var(--color-light);
+}
+
+.dark-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-light-gray);
+}
+
+.dark-theme .header {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .button {
+  background: transparent;
+  color: var(--color-light);
+}
+
+.dark-theme .button:hover {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent {
+  background: transparent;
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent::after {
+  border: 1px solid var(--color-light);
+  background: url('/src/icons/arrow-top-right.svg') center/70% no-repeat;
+}
+
+.dark-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change {
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change::after {
+  background: url('/src/icons/light.png') center/70% no-repeat;
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .input {
+  color: var(--color-light);
+  border: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .input::placeholder {
+  color: var(--color-light-gray);
+}
+
+.dark-theme .input:hover {
+  border-color: var(--color-light);
+}
+
+.dark-theme .input:focus {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .calculate-table-wrapper::before {
+  background-color: var(--color-dark);
+}
+
+.dark-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table th {
+  color: var(--color-light);
+}
+
+.dark-theme .calculate-table tfoot {
+  color: var(--color-light);
+}
+
+.dark-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.dark-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .footer {
+  background: var(--color-dark-alternate);
+}
+
+
+
+/* light-theme */
+
+.light-theme {
+  color: var(--color-dark-gray);
+  background-color: var(--color-light);
+}
+
+.light-theme a {
+  color: var(--color-dark-gray);
+}
+
+.light-theme a:hover {
+  color: var(--color-dark);
+}
+
+.light-theme h2 {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme h3 {
+  color: var(--color-light-gray);
+}
+
+.light-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-dark-gray);
+}
+
+.light-theme .header {
+  background-color: var(--color-light);
+}
+
+.light-theme .button {
+  background: transparent;
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .button:hover {
+  background-color: var(--color-dark-gray);
+}
+
+.light-theme .button.transparent {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent::after {
+  border: 1px solid var(--color-dark);
+  background: url('/src/icons/arrow-top-right-black.svg') center/70% no-repeat;
+}
+
+.light-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change::after {
+  background: url('/src/icons/dark.png') center/70% no-repeat;
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .input {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark-gray);
+}
+
+.light-theme .input::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.light-theme .input:hover {
+  border-color: var(--color-dark);
+}
+
+.light-theme .input:focus {
+  color: var(--color-dark-alternate);
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate {
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate-table-wrapper {
+  color: var(--color-dark);
+}
+
+.light-theme .calculate-table-wrapper::before {
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-dark);
+}
+
+.light-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table th {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .calculate-table tfoot {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.light-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.light-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .footer {
+  background: var(--color-light);
 }
