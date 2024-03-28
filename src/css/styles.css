@@ -1,5 +1,7 @@
 @import url('./normolize.css');
 @import url('./fonts.css');
+@import url('./dark_theme.css');
+@import url('./light_theme.css');
 
 :root {
   --color-dark: #000000;
@@ -330,275 +332,77 @@ input::-webkit-inner-spin-button {
   line-height: 1.25;
 }
 
-
-/* dark-theme */
-
-.dark-theme {
-  color: var(--color-light-gray);
-  background-color: var(--color-dark);
+@media (max-width: 1280px) {
+  .container {
+    padding-inline: 55px;
+  }
 }
 
-.dark-theme a {
-  color: var(--color-light);
+@media (max-width:1024px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-top: 20px;
+  }
+  
+  .calculate {
+    padding-block: 100px;
+  }
+
+  .calculate-inner {
+    column-gap: 20px;
+  }
+
+  .calculate-form-body {
+    grid-template-columns: 1fr;
+  }
+
+  .calculate-button {
+    width: 100%;
+  }
+
+  .calculate-table :is(td, th) {
+    padding-block: 10px;
+  }
+
+  .calculate-table tfoot td {
+    padding-top: 10px;
+  }
 }
 
-.dark-theme a:hover {
-  color: var(--color-light-gray);
-}
+@media (max-width: 767px) {
+  .button {
+    padding-inline: 18px;
+  }
+  
+  .header {
+    padding-top: 10px;
+  }
 
-.dark-theme h2 {
-  color: var(--color-light);
-}
+  .header a {
+    font-size: 18px;
+  }
 
-.dark-theme h3 {
-  color: var(--color-light);
-}
+  .container {
+    padding-inline: var(--container-padding-x);
+  }
 
-.dark-theme .backdrop-title::after {
-  -webkit-text-stroke: 1px var(--color-light-gray);
-}
+  .calculate-inner {
+    flex-direction: column;
+    row-gap: 30px;
+  }
 
-.dark-theme .header {
-  background-color: var(--color-dark-alternate);
-}
+  .calculate-table-wrapper::before {
+    display: none;
+  }
 
-.dark-theme .button {
-  background: transparent;
-  color: var(--color-light);
-}
+  .calculate {
+    padding-block: 60px;
+  }
 
-.dark-theme .button:hover {
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .button.transparent {
-  background: transparent;
-  color: var(--color-light);
-  border: 1px solid var(--color-light);
-}
-
-.dark-theme .button.transparent::after {
-  border: 1px solid var(--color-light);
-  background: url('/src/icons/arrow-top-right.svg') center/70% no-repeat;
-}
-
-.dark-theme .button.transparent:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .button.transparent-change {
-  color: var(--color-light);
-  border: 1px solid var(--color-light);
-}
-
-.dark-theme .button.transparent-change:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .button.transparent-change::after {
-  background: url('/src/icons/light.png') center/70% no-repeat;
-  border: 1px solid var(--color-light);
-}
-
-.dark-theme .input {
-  color: var(--color-light);
-  border: 1px solid var(--color-light-gray);
-}
-
-.dark-theme .input::placeholder {
-  color: var(--color-light-gray);
-}
-
-.dark-theme .input:hover {
-  border-color: var(--color-light);
-}
-
-.dark-theme .input:focus {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .calculate {
-  background-color: var(--color-dark-alternate);
-}
-
-.dark-theme .calculate-table-wrapper::before {
-  background-color: var(--color-dark);
-}
-
-.dark-theme .calculate-table :is(td, th):not(:last-child) {
-  border-right: 1px solid var(--color-light-gray);
-}
-
-.dark-theme .calculate-table tbody tr:last-child td:first-child::after {
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .calculate-table tbody td {
-  border-top: 1px solid var(--color-light-gray);
-}
-
-.dark-theme .calculate-table th {
-  color: var(--color-light);
-}
-
-.dark-theme .calculate-table tfoot {
-  color: var(--color-light);
-}
-
-.dark-theme :is(dialog[open]) {
-  background-color: var(--color-dark-alternate);
-}
-
-.dark-theme .modal-element-items {
-  color: var(--color-light);
-}
-
-.dark-theme ::backdrop{
-  background-color: var(--color-light-gray);
-}
-
-.dark-theme .footer {
-  background: var(--color-dark-alternate);
-}
-
-
-
-/* light-theme */
-
-.light-theme {
-  color: var(--color-dark-gray);
-  background-color: var(--color-light);
-}
-
-.light-theme a {
-  color: var(--color-dark-gray);
-}
-
-.light-theme a:hover {
-  color: var(--color-dark);
-}
-
-.light-theme h2 {
-  color: var(--color-dark-alternate);
-}
-
-.light-theme h3 {
-  color: var(--color-light-gray);
-}
-
-.light-theme .backdrop-title::after {
-  -webkit-text-stroke: 1px var(--color-dark-gray);
-}
-
-.light-theme .header {
-  background-color: var(--color-light);
-}
-
-.light-theme .button {
-  background: transparent;
-  color: var(--color-dark-alternate);
-}
-
-.light-theme .button:hover {
-  background-color: var(--color-dark-gray);
-}
-
-.light-theme .button.transparent {
-  background: transparent;
-  color: var(--color-dark);
-  border: 1px solid var(--color-dark);
-}
-
-.light-theme .button.transparent::after {
-  border: 1px solid var(--color-dark);
-  background: url('/src/icons/arrow-top-right-black.svg') center/70% no-repeat;
-}
-
-.light-theme .button.transparent:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
-.light-theme .button.transparent-change {
-  color: var(--color-dark);
-  border: 1px solid var(--color-dark);
-}
-
-.light-theme .button.transparent-change:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
-.light-theme .button.transparent-change::after {
-  background: url('/src/icons/dark.png') center/70% no-repeat;
-  border: 1px solid var(--color-dark);
-}
-
-.light-theme .input {
-  color: var(--color-dark);
-  border: 1px solid var(--color-dark-gray);
-}
-
-.light-theme .input::placeholder {
-  color: var(--color-dark-gray);
-}
-
-.light-theme .input:hover {
-  border-color: var(--color-dark);
-}
-
-.light-theme .input:focus {
-  color: var(--color-dark-alternate);
-  background-color: var(--color-light);
-}
-
-.light-theme .calculate {
-  background-color: var(--color-light);
-}
-
-.light-theme .calculate-table-wrapper {
-  color: var(--color-dark);
-}
-
-.light-theme .calculate-table-wrapper::before {
-  background-color: var(--color-light-gray);
-}
-
-.light-theme .calculate-table :is(td, th):not(:last-child) {
-  border-right: 1px solid var(--color-dark);
-}
-
-.light-theme .calculate-table tbody tr:last-child td:first-child::after {
-  background-color: var(--color-dark);
-}
-
-.light-theme .calculate-table tbody td {
-  border-top: 1px solid var(--color-dark);
-}
-
-.light-theme .calculate-table th {
-  color: var(--color-dark-alternate);
-}
-
-.light-theme .calculate-table tfoot {
-  color: var(--color-dark-alternate);
-}
-
-.light-theme :is(dialog[open]) {
-  background-color: var(--color-dark-alternate);
-}
-
-.light-theme .modal-element-items {
-  color: var(--color-light);
-}
-
-.light-theme ::backdrop{
-  background-color: var(--color-light-gray);
-}
-
-.light-theme .footer {
-  background: var(--color-light);
+  .calculate-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

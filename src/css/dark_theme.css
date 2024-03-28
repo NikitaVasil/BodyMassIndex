@@ -1,0 +1,132 @@
+/* dark-theme */
+
+.dark-theme {
+  color: var(--color-light-gray);
+  background-color: var(--color-dark);
+}
+
+.dark-theme a {
+  color: var(--color-light);
+}
+
+.dark-theme a:hover {
+  color: var(--color-light-gray);
+}
+
+.dark-theme h2 {
+  color: var(--color-light);
+}
+
+.dark-theme h3 {
+  color: var(--color-light);
+}
+
+.dark-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-light-gray);
+}
+
+.dark-theme .header {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .button {
+  background: transparent;
+  color: var(--color-light);
+}
+
+.dark-theme .button:hover {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent {
+  background: transparent;
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent::after {
+  border: 1px solid var(--color-light);
+  background: url('/src/icons/arrow-top-right.svg') center/70% no-repeat;
+}
+
+.dark-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change {
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change::after {
+  background: url('/src/icons/light.png') center/70% no-repeat;
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .input {
+  color: var(--color-light);
+  border: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .input::placeholder {
+  color: var(--color-light-gray);
+}
+
+.dark-theme .input:hover {
+  border-color: var(--color-light);
+}
+
+.dark-theme .input:focus {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .calculate-table-wrapper::before {
+  background-color: var(--color-dark);
+}
+
+.dark-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table th {
+  color: var(--color-light);
+}
+
+.dark-theme .calculate-table tfoot {
+  color: var(--color-light);
+}
+
+.dark-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.dark-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .footer {
+  background: var(--color-dark-alternate);
+}

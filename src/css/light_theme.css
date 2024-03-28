@@ -1,0 +1,136 @@
+/* light-theme */
+
+.light-theme {
+  color: var(--color-dark-gray);
+  background-color: var(--color-light);
+}
+
+.light-theme a {
+  color: var(--color-dark-gray);
+}
+
+.light-theme a:hover {
+  color: var(--color-dark);
+}
+
+.light-theme h2 {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme h3 {
+  color: var(--color-light-gray);
+}
+
+.light-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-dark-gray);
+}
+
+.light-theme .header {
+  background-color: var(--color-light);
+}
+
+.light-theme .button {
+  background: transparent;
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .button:hover {
+  background-color: var(--color-dark-gray);
+}
+
+.light-theme .button.transparent {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent::after {
+  border: 1px solid var(--color-dark);
+  background: url('/src/icons/arrow-top-right-black.svg') center/70% no-repeat;
+}
+
+.light-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change::after {
+  background: url('/src/icons/dark.png') center/70% no-repeat;
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .input {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark-gray);
+}
+
+.light-theme .input::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.light-theme .input:hover {
+  border-color: var(--color-dark);
+}
+
+.light-theme .input:focus {
+  color: var(--color-dark-alternate);
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate {
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate-table-wrapper {
+  color: var(--color-dark);
+}
+
+.light-theme .calculate-table-wrapper::before {
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-dark);
+}
+
+.light-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table th {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .calculate-table tfoot {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.light-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.light-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .footer {
+  background: var(--color-light);
+}
