@@ -1,0 +1,847 @@
+/**
+  -----------Нормализация блочной модели------------
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+*/
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+*/
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+*/
+:where(h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+*/
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+*/
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+*/
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями
+*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+*/
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  height: 100%;
+  /**
+    Плавный скролл
+  */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+  */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+*/
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/*
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+*/
+svg * {
+  transition-property: fill, stroke;
+}
+
+/*
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: 'Heebo';
+  src: url(fonts/Heebo-Light.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url(fonts/Heebo-Bold.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  src: url(fonts/Yantramanav-Bold.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* dark-theme */
+
+.dark-theme {
+  color: var(--color-light-gray);
+  background-color: var(--color-dark);
+}
+
+.dark-theme a {
+  color: var(--color-light);
+}
+
+.dark-theme a:hover {
+  color: var(--color-light-gray);
+}
+
+.dark-theme h2 {
+  color: var(--color-light);
+}
+
+.dark-theme h3 {
+  color: var(--color-light);
+}
+
+.dark-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-light-gray);
+}
+
+.dark-theme .header {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .button {
+  background: transparent;
+  color: var(--color-light);
+}
+
+.dark-theme .button:hover {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent {
+  background: transparent;
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent::after {
+  border: 1px solid var(--color-light);
+  background: url(image/arrow-top-right.svg) center/70% no-repeat;
+}
+
+.dark-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change {
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .button.transparent-change::after {
+  background: url(image/light.png) center/70% no-repeat;
+  border: 1px solid var(--color-light);
+}
+
+.dark-theme .input {
+  color: var(--color-light);
+  border: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .input::placeholder {
+  color: var(--color-light-gray);
+}
+
+.dark-theme .input:hover {
+  border-color: var(--color-light);
+}
+
+.dark-theme .input:focus {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .calculate-table-wrapper::before {
+  background-color: var(--color-dark);
+}
+
+.dark-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.dark-theme .calculate-table th {
+  color: var(--color-light);
+}
+
+.dark-theme .calculate-table tfoot {
+  color: var(--color-light);
+}
+
+.dark-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.dark-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.dark-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.dark-theme .footer {
+  background: var(--color-dark-alternate);
+}
+/* light-theme */
+
+.light-theme {
+  color: var(--color-dark-gray);
+  background-color: var(--color-light);
+}
+
+.light-theme a {
+  color: var(--color-dark-gray);
+}
+
+.light-theme a:hover {
+  color: var(--color-dark);
+}
+
+.light-theme h2 {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme h3 {
+  color: var(--color-light-gray);
+}
+
+.light-theme .backdrop-title::after {
+  -webkit-text-stroke: 1px var(--color-dark-gray);
+}
+
+.light-theme .header {
+  background-color: var(--color-light);
+}
+
+.light-theme .button {
+  background: transparent;
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .button:hover {
+  background-color: var(--color-dark-gray);
+}
+
+.light-theme .button.transparent {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent::after {
+  border: 1px solid var(--color-dark);
+  background: url(image/arrow-top-right-black.svg) center/70% no-repeat;
+}
+
+.light-theme .button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .button.transparent-change:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .button.transparent-change::after {
+  background: url(image/dark.png) center/70% no-repeat;
+  border: 1px solid var(--color-dark);
+}
+
+.light-theme .input {
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark-gray);
+}
+
+.light-theme .input::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.light-theme .input:hover {
+  border-color: var(--color-dark);
+}
+
+.light-theme .input:focus {
+  color: var(--color-dark-alternate);
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate {
+  background-color: var(--color-light);
+}
+
+.light-theme .calculate-table-wrapper {
+  color: var(--color-dark);
+}
+
+.light-theme .calculate-table-wrapper::before {
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .calculate-table :is(td, th):not(:last-child) {
+  border-right: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table tbody tr:last-child td:first-child::after {
+  background-color: var(--color-dark);
+}
+
+.light-theme .calculate-table tbody td {
+  border-top: 1px solid var(--color-dark);
+}
+
+.light-theme .calculate-table th {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme .calculate-table tfoot {
+  color: var(--color-dark-alternate);
+}
+
+.light-theme :is(dialog[open]) {
+  background-color: var(--color-dark-alternate);
+}
+
+.light-theme .modal-element-items {
+  color: var(--color-light);
+}
+
+.light-theme ::backdrop{
+  background-color: var(--color-light-gray);
+}
+
+.light-theme .footer {
+  background: var(--color-light);
+}
+:root {
+  --color-dark: #000000;
+  --color-dark-alternate: #131619;
+  --color-light: #ffffff;
+  --color-dark-gray: #404040;
+  --color-light-gray: #C4C4C4;
+
+  --border-radius: 30px;
+  --border: 1px solid var(--color-light);
+
+  --font-family-base: 'Heebo', sans-serif;
+  --font-family-accent: 'Yantramanav', sans-serif;
+
+  --input-height: 54px;
+
+  --container-width: 1300px;
+  --container-padding-x: 15px;
+
+  --transition-duration: 0.2s;
+
+  --header-height: 90px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+svg *[fill] {fill: currentColor;}
+svg *[stroke] {stroke: currentColor;}
+
+svg * {
+  transition-property: fill, stroke;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+p {
+  margin-block: 0;
+}
+
+p:not([class]):not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.title-medium {
+  font-size: clamp(20px, 2.08vw, 40px);
+  line-height: 1.3;
+}
+
+.backdrop-title {
+  position: relative;
+  z-index: 2;
+}
+
+.backdrop-title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: calc(100% + 8px);
+  width: 26px;
+  aspect-ratio: 1;
+}
+
+.backdrop-title::after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: -1;
+  top: -0.3em;
+  left: -0.6em;
+  font-family: var(--font-family-accent);
+  font-size: 2.8em;
+  line-height: 1;
+  color: transparent;
+}
+
+.backdrop-title.centered::after {
+  top: -0.25em;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  min-height: var(--header-height);
+  padding-inline: 50px;
+}
+
+.header a {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding-inline: 26px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.button.transparent {
+  position: relative;
+  height: var(--input-height);
+  padding-left: 31px;
+  padding-right: 80px;
+}
+
+.button.transparent::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.button.transparent-change {
+  position: relative;
+  height: var(--input-height);
+  padding-left: 31px;
+  padding-right: 80px;
+}
+
+.button.transparent-change::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.input {
+  width: 100%;
+  height: var(--input-height);
+  padding-inline: 25px;
+  background-color: transparent;
+  border-radius: var(--border-radius);
+}
+
+.input:focus {
+  outline: none;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.calculate-body {
+  flex-grow: 1;
+  max-width: 627px;
+}
+
+.calculate {
+  padding-block: 100px;
+}
+
+.calculate-inner {
+  display: flex;
+  align-items: center;
+  column-gap: 36px;
+}
+
+.calculate-title:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.calculate-description {
+  max-width: 480px;
+}
+
+.calculate-description:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.calculate-form-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 30px;
+}
+
+.calculate-form-body:not(:last-child) {
+  margin-bottom: 26px;
+}
+
+.calculate-input.wide {
+  grid-column: -1 / 1;
+}
+
+.calculate-table-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 610px;
+}
+
+.calculate-table-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.calculate-table {
+  position: relative;
+  border-collapse: collapse;
+}
+
+.calculate-table :is(td, th) {
+  padding-right: 30px;
+}
+
+.calculate-table :is(td, th):not(:first-child) {
+  padding-left: 30px;
+}
+
+.calculate-table tbody tr:last-child td:first-child {
+  position: relative;
+}
+
+.calculate-table tbody tr:last-child td:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1px;
+}
+
+.calculate-table th {
+  padding-block: 20px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.calculate-table td {
+  padding-block: 14px;
+}
+
+.calculate-table tfoot td {
+  padding-top: 33px;
+  padding-bottom: 0;
+}
+
+:is(dialog[open]) {
+  border: none;
+  border-radius: 30% 0%;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 40px;
+}
+
+.modal h3 {
+  text-align: center;
+}
+
+.modal-element-items{
+  text-align: left;
+}
+
+::backdrop{
+  opacity: 0.5;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.25;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    padding-inline: 55px;
+  }
+}
+
+@media (max-width:1024px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-top: 20px;
+  }
+  
+  .calculate {
+    padding-block: 100px;
+  }
+
+  .calculate-inner {
+    column-gap: 20px;
+  }
+
+  .calculate-form-body {
+    grid-template-columns: 1fr;
+  }
+
+  .calculate-button {
+    width: 100%;
+  }
+
+  .calculate-table :is(td, th) {
+    padding-block: 10px;
+  }
+
+  .calculate-table tfoot td {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    padding-inline: 18px;
+  }
+  
+  .header {
+    padding-top: 10px;
+  }
+
+  .header a {
+    font-size: 18px;
+  }
+
+  .container {
+    padding-inline: var(--container-padding-x);
+  }
+
+  .calculate-inner {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  .calculate-table-wrapper::before {
+    display: none;
+  }
+
+  .calculate {
+    padding-block: 60px;
+  }
+
+  .calculate-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
