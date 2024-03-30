@@ -24,7 +24,7 @@ function getFormValue(event) {
     }
   }
 
-  let calculate = Calculate.create(Number(data.height), Number(data.weight),
+  const calculate = Calculate.create(Number(data.height), Number(data.weight),
                                             Number(data.age), data.gender, Number(data.activity));
   
   let bodymassindex = calculate.calculateBMI();
@@ -67,8 +67,8 @@ function closeOnBackDropClick({ currentTarget, target }) {
 
 
 //Смена цветовой темы
-let page = document.querySelector('.page');
-let changeButton = document.querySelector('.change-button');
+const page = document.querySelector('.page');
+const changeButton = document.querySelector('.change-button');
 
 changeButton.onclick = function() {
   page.classList.toggle('light-theme');
