@@ -9,10 +9,6 @@
   color: var(--color-light);
 }
 
-.dark-theme a:hover {
-  color: var(--color-light-gray);
-}
-
 .dark-theme h2 {
   color: var(--color-light);
 }
@@ -34,9 +30,6 @@
   color: var(--color-light);
 }
 
-.dark-theme .button:hover {
-  background-color: var(--color-light-gray);
-}
 
 .dark-theme .button.transparent {
   background: transparent;
@@ -49,19 +42,9 @@
   background: url('/src/icons/arrow-top-right.svg') center/70% no-repeat;
 }
 
-.dark-theme .button.transparent:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
 .dark-theme .button.transparent-change {
   color: var(--color-light);
   border: 1px solid var(--color-light);
-}
-
-.dark-theme .button.transparent-change:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
 }
 
 .dark-theme .button.transparent-change::after {
@@ -76,10 +59,6 @@
 
 .dark-theme .input::placeholder {
   color: var(--color-light-gray);
-}
-
-.dark-theme .input:hover {
-  border-color: var(--color-light);
 }
 
 .dark-theme .input:focus {
@@ -129,4 +108,52 @@
 
 .dark-theme .footer {
   background: var(--color-dark-alternate);
+}
+
+@media (hover:hover) {
+  .dark-theme a:hover {
+    color: var(--color-light-gray);
+  }
+
+  .dark-theme .button:hover {
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .button.transparent:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .button.transparent-change:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .input:hover {
+    border-color: var(--color-light);
+  }
+}
+
+@media (hover:none) {
+  .dark-theme a:active {
+    color: var(--color-light-gray);
+  }
+
+  .dark-theme .button:active {
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .button.transparent:active {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .button.transparent-change:active {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .dark-theme .input:active {
+    border-color: var(--color-light);
+  }
 }

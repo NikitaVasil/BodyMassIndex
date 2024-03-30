@@ -9,10 +9,6 @@
   color: var(--color-dark-gray);
 }
 
-.light-theme a:hover {
-  color: var(--color-dark);
-}
-
 .light-theme h2 {
   color: var(--color-dark-alternate);
 }
@@ -34,10 +30,6 @@
   color: var(--color-dark-alternate);
 }
 
-.light-theme .button:hover {
-  background-color: var(--color-dark-gray);
-}
-
 .light-theme .button.transparent {
   background: transparent;
   color: var(--color-dark);
@@ -49,19 +41,9 @@
   background: url('/src/icons/arrow-top-right-black.svg') center/70% no-repeat;
 }
 
-.light-theme .button.transparent:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
-}
-
 .light-theme .button.transparent-change {
   color: var(--color-dark);
   border: 1px solid var(--color-dark);
-}
-
-.light-theme .button.transparent-change:hover {
-  color: var(--color-dark);
-  background-color: var(--color-light-gray);
 }
 
 .light-theme .button.transparent-change::after {
@@ -76,10 +58,6 @@
 
 .light-theme .input::placeholder {
   color: var(--color-dark-gray);
-}
-
-.light-theme .input:hover {
-  border-color: var(--color-dark);
 }
 
 .light-theme .input:focus {
@@ -133,4 +111,52 @@
 
 .light-theme .footer {
   background: var(--color-light);
+}
+
+@media (hover:hover) {
+  .light-theme a:hover {
+    color: var(--color-dark);
+  }
+
+  .light-theme .button:hover {
+    background-color: var(--color-dark-gray);
+  }
+
+  .light-theme .button.transparent:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .light-theme .button.transparent-change:hover {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .light-theme .input:hover {
+    border-color: var(--color-dark);
+  }
+}
+
+@media (hover:none) {
+  .light-theme a:active {
+    color: var(--color-dark);
+  }
+
+  .light-theme .button:active {
+    background-color: var(--color-dark-gray);
+  }
+
+  .light-theme .button.transparent:active {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .light-theme .button.transparent-change:active {
+    color: var(--color-dark);
+    background-color: var(--color-light-gray);
+  }
+
+  .light-theme .input:active {
+    border-color: var(--color-dark);
+  }
 }
