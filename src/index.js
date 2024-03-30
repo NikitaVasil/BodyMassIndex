@@ -1,8 +1,8 @@
-import { BodyMassIndex } from './components/bmi';
+import { Calculate } from './components/bmi';
 import './css/styles.css';
 import './index.html';
 
-//Принимаем данные из формы
+
 const calculation = document.querySelector('.calculate-button');
 const modalElement = document.getElementById('modal');
 const bmi = document.querySelector('.bodymassindex');
@@ -11,7 +11,7 @@ const blm = document.querySelector('.basiclevelmetabolism');
 const bmr = document.querySelector('.basicmetabolicrate');
 const met = document.querySelector('.metabolism');
 
-
+//Открываем диалоговое окно
 calculation.addEventListener('click', getFormValue);
 function getFormValue(event) {
   event.preventDefault();
@@ -24,20 +24,32 @@ function getFormValue(event) {
     }
   }
 
-  let bodyMassIndex = BodyMassIndex.create(Number(data.height), Number(data.weight),
+  let calculate = Calculate.create(Number(data.height), Number(data.weight),
                                             Number(data.age), data.gender, Number(data.activity));
   
+  let bodymassindex = calculate.calculateBMI();
+  let idweight = calculate.idealWeight();
+  let basiclavelmet = calculate.basicLevelMetabolic();
+  let basicmetrate = calculate.basicMetabolicRate();
+  let metab = calculate.metabolism();
+
   modalElement.classList.remove('visually-hidden');
 
-  bmi.innerHTML = ` ${bodyMassIndex.calculateBMI()}`;
-  iweight.innerHTML = ` ${bodyMassIndex.idealWeight()} `;
-  blm.innerHTML = ` ${bodyMassIndex.basicLevelMetabolic()} `
-  bmr.innerHTML = ` ${bodyMassIndex.basicMetabolicRate()} `;
-  met.innerHTML = ` ${bodyMassIndex.metabolism()} `;
-
-  modalElement.showModal();
+  
+  if ((bodymassindex >= 18) && (bodymassindex <= 35)){
+    bmi.innerHTML = ` ${bodymassindex}`;
+    iweight.innerHTML = ` ${idweight} `;
+    blm.innerHTML = ` ${basiclavelmet} `
+    bmr.innerHTML = ` ${basicmetrate} `;
+    met.innerHTML = ` ${metab} `;
+    modalElement.showModal();
+  }
+  else {
+    alert('Вы ввели неправильные значения');
+  }
 }
 
+//Закрываем модальное окно
 modalElement.addEventListener("click", closeOnBackDropClick)
 function closeOnBackDropClick({ currentTarget, target }) {
   const dialogElement = currentTarget
@@ -53,6 +65,8 @@ function closeOnBackDropClick({ currentTarget, target }) {
   }
 }
 
+
+//Смена цветовой темы
 let page = document.querySelector('.page');
 let changeButton = document.querySelector('.change-button');
 

@@ -29,23 +29,26 @@
           <form class="calculate-form" id="form">
             <div class="calculate-form-body">
               <label for="height" class="visually-hidden">Рос</label>
-              <input class="calculate-input input" id="height" type="number" placeholder="Рост / см" name="height">
+              <input class="calculate-input input" id="height" type="number" placeholder="Рост / см" name="height"
+                required max="3">
 
               <label for="weight" class="visually-hidden">Вес</label>
-              <input class="calculate-input input" id="weight" type="number" placeholder="Вес / кг" name="weight">
+              <input class="calculate-input input" id="weight" type="number" placeholder="Вес / кг" name="weight"
+                required max="3">
 
               <label for="age" class="visually-hidden">Возраст</label>
-              <input class="calculate-input input" id="age" type="number" placeholder="Возраст" name="age">
+              <input class="calculate-input input" id="age" type="number" placeholder="Возраст" name="age" required
+                max="3">
 
               <label for="gender" class="visually-hidden">Пол</label>
-              <select id="gender" class="calculate-input input" required name="gender">
+              <select id="gender" class="calculate-input input" required name="gender" required>
                 <option value="" disabled selected>Пол</option>
                 <option value="male">Мужчина</option>
                 <option value="female">Женщина</option>
               </select>
 
               <label for="activity-factor" class="visually-hidden">Activity factor</label>
-              <select id="activity-factor" class="calculate-input input wide" required name="activity">
+              <select id="activity-factor" class="calculate-input input wide" required name="activity" required>
                 <option value="" disabled selected>Выберети коэфициент физической активности</option>
                 <option value="1.2">1.2 - сидячий образ жизни</option>
                 <option value="1.375">1.375 - средняя активность</option>

@@ -1,4 +1,4 @@
-export class BodyMassIndex {
+export class Calculate {
   constructor(heigth, weigth, age, gender, activ_coefficient){
     this.heigth = heigth
     this.weigth = weigth
@@ -12,7 +12,6 @@ export class BodyMassIndex {
   }
 
   calculateBMI(){
-    
     let heigth_m = this.heigth / 100;
     let calc_bmi = this.weigth / (Math.pow(heigth_m, 2));
     return calc_bmi.toFixed(2);
