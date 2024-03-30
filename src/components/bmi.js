@@ -8,7 +8,7 @@ export class Calculate {
   }
 
   static create(...args) {
-    return new BodyMassIndex(...args);
+    return new Calculate(...args);
   }
 
   calculateBMI(){
